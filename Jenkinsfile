@@ -1,7 +1,9 @@
 // Jenkinsfile
 pipeline {
     agent any
-
+    tools {
+        go 'go-1.4
+    }
     environment {
         APP_NAME = 'my-go-app'
         APP_PORT = '8080' // Your Go app listens on 8080 by default

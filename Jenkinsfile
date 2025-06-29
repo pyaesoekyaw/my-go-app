@@ -67,7 +67,7 @@ pipeline {
                         // nohup ensures it keeps running after the SSH session closes
                         // Redirect output to a log file for debugging later
                         // Corrected Line 68
-                        sh "ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} 'cd /home/${EC2_USER} && nohup ./${APP_NAME} > app.log 2>&1 &'"
+                        sh "ssh -o StrictHostKeyChecking=no -f ${EC2_USER}@${EC2_HOST} 'cd /home/${EC2_USER} && nohup ./${APP_NAME} > app.log 2>&1 &'"
                         echo "Application started on EC2 instance (PID: \$(ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} 'pgrep -f ${APP_NAME} || echo \"N/A\"'))"
 
                         // 4. Give the app a moment to start up

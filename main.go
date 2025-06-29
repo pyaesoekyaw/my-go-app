@@ -1,19 +1,16 @@
-
+// main.go
 package main
 
 import (
 	"fmt"
 	"log"
 	"net/http"
-	"os"
+	// "os" // You can remove os import if hardcoding port
 )
 
 func main() {
-	// Get port from environment variable, default to 8080
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080" // Default port
-	}
+	// Let's explicitly use 8000 here
+	port := "8000" // Hardcoding for certainty
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Hello from your Go app! Running on port %s\n", port)

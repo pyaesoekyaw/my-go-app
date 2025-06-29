@@ -6,7 +6,7 @@ pipeline {
     }
     environment {
         APP_NAME = 'my-go-app'
-        APP_PORT = '8080' // Your Go app listens on 8080 by default
+        APP_PORT = '8000' // Your Go app listens on 8080 by default
         EC2_HOST = '3.84.218.246' // !!! Change this to your EC2 instance's IP/DNS !!!
         EC2_USER = 'ubuntu' // or 'ec2-user' depending on your AMI
         EC2_CREDENTIALS_ID = 'my-ec2-ssh-key' // !!! Change this to your Jenkins Credential ID !!!

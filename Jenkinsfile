@@ -2,7 +2,7 @@
 pipeline {
     agent any
     tools {
-        go 'go-1.4
+        go 'go-1.4'
     }
     environment {
         APP_NAME = 'my-go-app'

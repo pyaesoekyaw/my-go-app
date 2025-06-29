@@ -2,7 +2,7 @@
 package main
 
 import (
-	"io/ioutil"
+	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"testing"

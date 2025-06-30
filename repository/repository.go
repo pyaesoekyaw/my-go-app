@@ -50,12 +50,11 @@ func NewRepository() (*Repository, error) {
 // CreateUser saves a new user to the database
 func (r *Repository) CreateUser(user *model.User) error {
 	result := r.DB.Create(user)
-	if err.Error() == "failed to create user: ERROR: duplicate key value violates unique constraint \"users_username_key\" (SQLSTATE 23505)" {
-    	http.Error(w, "Username already exists", http.StatusConflict) // This should be sent
-	} else {
-    	log.Printf("Error creating user: %v", err)
-    	http.Error(w, "Error creating user", http.StatusInternalServerError) // This is what you're seeing
+	if result.Error != nil { // <-- Check result.Error here
+		// Just return the error from GORM, don't try to send HTTP responses here
+		return fmt.Errorf("failed to create user: %w", result.Error)
 	}
+	
 	return nil
 }
 

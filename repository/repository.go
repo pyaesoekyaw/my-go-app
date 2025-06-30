@@ -51,11 +51,11 @@ func NewRepository() (*Repository, error) {
 func (r *Repository) CreateUser(user *model.User) error {
 	result := r.DB.Create(user)
 	if err.Error() == "failed to create user: ERROR: duplicate key value violates unique constraint \"users_username_key\" (SQLSTATE 23505)" {
-    http.Error(w, "Username already exists", http.StatusConflict) // This should be sent
-} else {
-    log.Printf("Error creating user: %v", err)
-    http.Error(w, "Error creating user", http.StatusInternalServerError) // This is what you're seeing
-}
+    	http.Error(w, "Username already exists", http.StatusConflict) // This should be sent
+	} else {
+    	log.Printf("Error creating user: %v", err)
+    	http.Error(w, "Error creating user", http.StatusInternalServerError) // This is what you're seeing
+	}
 	return nil
 }
 

@@ -63,8 +63,9 @@ pipeline {
                     // Use sshagent to securely use your SSH key
                     sshagent(credentials: ["${EC2_CREDENTIALS_ID}"]) {
                         // 1. Stop any existing running instance of the app on EC2
-                        sh "ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} 'sudo pkill ${APP_NAME} || true'"
-                        echo 'Previous application instance stopped (if running).'
+                        sh "ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} 'rm -f /home/${EC2_USER}/${APP_NAME}'"
+                        echo 'Old application binary removed (if existed).'
+
 
                         // 2. Copy the newly built binary to EC2
                         // Ensure the path is correct where you want to deploy it on EC2

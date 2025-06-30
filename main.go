@@ -6,6 +6,8 @@ import (
 	"net/http"
 )
 
+// Use backticks (`) for raw string literal.
+// Changed '%' to '&#37;' (HTML entity for percent sign) in CSS to explicitly avoid Go's format verb parsing.
 const htmlContent = `
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +40,7 @@ const htmlContent = `
             margin-bottom: 20px;
         }
         input[type="text"] {
-            width: calc(100% - 20px);
+            width: calc(100&#37; - 20px); /* CRITICAL CHANGE: '%' replaced with '&#37;' */
             padding: 10px;
             margin-bottom: 20px;
             border: 1px solid #ddd;

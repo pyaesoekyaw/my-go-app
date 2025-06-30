@@ -16,7 +16,7 @@ pipeline {
         DB_PORT = '5432' // PostgreSQL default port
         DB_USER = 'Achawlay' // !!! သင့် RDS Database Username ကို ထည့်ပါ !!!
         DB_PASSWORD = credentials('your-db-password-credential-id') // !!! Jenkins Credentials ID ကို ထည့်ပါ !!!
-        DB_NAME = 'database-psk' // !!! သင့် Database Name ကို ထည့်ပါ !!!
+        DB_NAME = 'postgres' // !!! သင့် Database Name ကို ထည့်ပါ !!!
         // ===============================================
     }
 

@@ -7,16 +7,16 @@ pipeline {
     environment {
         APP_NAME = 'my-go-app'
         APP_PORT = '8000'
-        EC2_HOST = 'YOUR_EC2_PUBLIC_IP_OR_DNS' // !!! မပြောင်းလဲပါနှင့်
+        EC2_HOST = '44.202.115.187' // !!! မပြောင်းလဲပါနှင့်
         EC2_USER = 'ubuntu' // or 'ec2-user'
         EC2_CREDENTIALS_ID = 'my-ec2-ssh-key' // !!! မပြောင်းလဲပါနှင့်
 
         // === AWS RDS Database Credentials (အသစ်ထပ်ထည့်ရန်) ===
-        DB_HOST = 'your-rds-endpoint.us-east-1.rds.amazonaws.com' // !!! သင့် RDS Endpoint ကို ထည့်ပါ !!!
+        DB_HOST = 'database-psk.c16i22mumjbv.us-east-1.rds.amazonaws.com' // !!! သင့် RDS Endpoint ကို ထည့်ပါ !!!
         DB_PORT = '5432' // PostgreSQL default port
-        DB_USER = 'your_db_username' // !!! သင့် RDS Database Username ကို ထည့်ပါ !!!
+        DB_USER = 'Achawlay' // !!! သင့် RDS Database Username ကို ထည့်ပါ !!!
         DB_PASSWORD = credentials('your-db-password-credential-id') // !!! Jenkins Credentials ID ကို ထည့်ပါ !!!
-        DB_NAME = 'your_database_name' // !!! သင့် Database Name ကို ထည့်ပါ !!!
+        DB_NAME = 'database-psk' // !!! သင့် Database Name ကို ထည့်ပါ !!!
         // ===============================================
     }
 

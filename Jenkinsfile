@@ -63,6 +63,11 @@ pipeline {
                         sh "scp -o StrictHostKeyChecking=no ${APP_NAME} ${EC2_USER}@${EC2_HOST}:/home/${EC2_USER}/${APP_NAME}"
                         echo 'Application binary copied to EC2 instance.'
 
+                        // --- NEW: Copy the static directory ---
+                        sh "scp -r -o StrictHostKeyChecking=no static ${EC2_USER}@${EC2_HOST}:/home/${EC2_USER}/"
+                        echo 'Static directory copied to EC2 instance.'
+                        // --- END NEW ---
+
                         // 3. Start the application in the background on EC2
                         // nohup ensures it keeps running after the SSH session closes
                         // Redirect output to a log file for debugging later

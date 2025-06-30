@@ -10,7 +10,10 @@ import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
-
+// Repository struct holds the database connection
+type Repository struct { // <-- Definition of Repository struct
+	DB *gorm.DB
+}
 // ... (Repository struct နှင့် NewRepository function အစပိုင်း) ...
 
 func NewRepository() (*Repository, error) {

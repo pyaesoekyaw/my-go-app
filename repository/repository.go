@@ -26,7 +26,7 @@ func NewRepository() (*Repository, error) {
 
 	// အရေးကြီးသော ပြင်ဆင်မှု: sslmode=disable ကို sslmode=require သို့ ပြောင်းပါ။
 	// ပိုမိုတင်းကြပ်သော စစ်ဆေးမှုများအတွက် CA cert ရှိပါက sslmode=verify-full ကိုလည်း သုံးနိုင်ပါသည်။
-	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=require TimeZone=Asia/Yangon", // <-- ဒီနေရာမှာ ပြောင်းပါ
+	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=Asia/Yangon", // <-- ဒီနေရာမှာ ပြောင်းပါ
 		dbHost, dbUser, dbPassword, dbName, dbPort)
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})

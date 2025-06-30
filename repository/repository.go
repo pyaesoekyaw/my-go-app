@@ -4,21 +4,16 @@ package repository
 import (
 	"fmt"
 	"log"
-	"my-go-app/model" // Adjust module path if different
+	"my-go-app/model" // module path ကွဲပြားလျှင် ချိန်ညှိပါ
 	"os"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
-// Repository struct holds the database connection
-type Repository struct {
-	DB *gorm.DB
-}
+// ... (Repository struct နှင့် NewRepository function အစပိုင်း) ...
 
-// NewRepository initializes a new database connection and returns a Repository instance
 func NewRepository() (*Repository, error) {
-	// Get database connection details from environment variables
 	dbHost := os.Getenv("DB_HOST")
 	dbUser := os.Getenv("DB_USER")
 	dbPassword := os.Getenv("DB_PASSWORD")
@@ -29,7 +24,9 @@ func NewRepository() (*Repository, error) {
 		return nil, fmt.Errorf("database environment variables (DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT) must be set")
 	}
 
-	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=Asia/Yangon",
+	// အရေးကြီးသော ပြင်ဆင်မှု: sslmode=disable ကို sslmode=require သို့ ပြောင်းပါ။
+	// ပိုမိုတင်းကြပ်သော စစ်ဆေးမှုများအတွက် CA cert ရှိပါက sslmode=verify-full ကိုလည်း သုံးနိုင်ပါသည်။
+	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=require TimeZone=Asia/Yangon", // <-- ဒီနေရာမှာ ပြောင်းပါ
 		dbHost, dbUser, dbPassword, dbName, dbPort)
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})

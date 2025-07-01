@@ -7,7 +7,7 @@ pipeline {
     environment {
         APP_NAME = 'my-go-app'
         APP_PORT = '8000'
-        EC2_HOST = '44.202.115.187' // !!! မပြောင်းလဲပါနှင့်
+        EC2_HOST = '18.206.251.1' // !!! မပြောင်းလဲပါနှင့်
         EC2_USER = 'ubuntu' // or 'ec2-user'
         EC2_CREDENTIALS_ID = 'my-ec2-ssh-key' // !!! မပြောင်းလဲပါနှင့်
 

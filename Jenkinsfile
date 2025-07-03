@@ -10,13 +10,13 @@ pipeline {
         // Deploy လုပ်မည့် Server သည် Jenkins Agent EC2 Instance ဖြစ်သောကြောင့် ၎င်း၏ Public IP ကို သုံးမည်။
         EC2_HOST = '13.218.73.15' // !!! Agent EC2 ၏ Public IP ကို ဒီနေရာတွင် ထည့်ပါ !!!
         EC2_USER = 'ubuntu' // Agent EC2 ၏ user
-        EC2_CREDENTIALS_ID = 'jenkins-agent-ssh-key' // !!! Jenkins Credential ထဲက Go App Deployment အတွက် SSH Key ID ကို ထည့်ပါ !!!
+        EC2_CREDENTIALS_ID = 'jenkins-agent-ssh-key' // !!! ssh and password နဲ့jenkins agent ရဲ့ private key ကိုထည့်
 
         // === AWS RDS Database Credentials ===
         DB_HOST = 'database-pyaesoe.c16i22mumjbv.us-east-1.rds.amazonaws.com' // !!! သင့် RDS Endpoint ကို ထည့်ပါ !!!
         DB_PORT = '5432'
         DB_USER = 'Achawlay'
-        DB_PASSWORD = credentials('my-rds-db-password') // !!! Jenkins Credentials ID ကို ထည့်ပါ !!!
+        DB_PASSWORD = credentials('my-rds-db-password') // !!! Jenkins Credentials ID ကို ထည့်ပါ 
         DB_NAME = 'postgres' // !!! သင့် Database Name ကို ထည့်ပါ !!!
         // ===============================================
     }

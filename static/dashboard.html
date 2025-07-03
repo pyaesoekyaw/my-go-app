@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - My Go App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #e6f7ff; /* Dashboard အတွက် အပြာနုရောင် background */
+            color: #333;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+        h1 {
+            color: #2196F3; /* အပြာရောင် ခေါင်းစဉ် */
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.1em;
+            margin-bottom: 25px;
+        }
+        .welcome-message {
+            font-size: 1.5em;
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+        .logout-button {
+            background-color: #f44336; /* အနီရောင် button */
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+        .logout-button:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard</h1>
+        <p class="welcome-message">Welcome, <span id="usernameDisplay"></span>!</p>
+        <p>You have successfully logged into your Go application.</p>
+        <button class="logout-button" onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        // username ကို ပြသဖို့နဲ့ logout အတွက် simple client-side script
+        window.onload = function() {
+            const username = new URLSearchParams(window.location.search).get('username');
+            if (username) {
+                document.getElementById('usernameDisplay').textContent = username;
+            } else {
+                document.getElementById('usernameDisplay').textContent = 'Guest';
+            }
+        };
+
+        function logout() {
+            // Production မှာဆိုရင် server-side မှာ session ကို ရှင်းဖို့ /logout endpoint ကို request ပို့ရပါမယ်။
+            // ဒီ simple ဥပမာအတွက် client-side ကနေ cookie ကို ဖယ်ရှားပြီး login page ကို redirect လုပ်ပါမယ်။
+            document.cookie = "session_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            window.location.href = "/";
+        }
+    </script>
+</body>
+</html>

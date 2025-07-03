@@ -149,7 +149,8 @@ func main() {
 			http.Redirect(w, r, "/", http.StatusFound) // Redirect if session invalid
 			return
 		}
-		fmt.Fprintf(w, "Welcome to the dashboard, %s!", username)
+		http.ServeFile(w, r, "static/dashboard.html")
+		// fmt.Fprintf(w, "Welcome to the dashboard, %s!", username)
 	})
 
 

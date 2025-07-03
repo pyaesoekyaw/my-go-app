@@ -1,7 +1,7 @@
 // Jenkinsfile
 pipeline {
     // agent ကို label ဖြင့် သတ်မှတ်ခြင်းဖြင့် Jenkins Agent Node (my-go-app-agent) ပေါ်တွင် run စေမည်။
-    agent { label 'my-go-app-agent' }
+    agent { label 'important' }
     tools { go 'go-1.4'}
 
     environment {

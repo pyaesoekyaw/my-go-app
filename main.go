@@ -137,20 +137,25 @@ func main() {
 	})
 
 	// A protected endpoint (example)
+	// A protected endpoint (example)
 	http.HandleFunc("/dashboard", func(w http.ResponseWriter, r *http.Request) {
-		cookie, err := r.Cookie("session_token")
-		if err != nil {
-			http.Redirect(w, r, "/", http.StatusFound) // Redirect to home/signin
-			return
-		}
+    		cookie, err := r.Cookie("session_token")
+    		if err != nil {
+        http.Redirect(w, r, "/", http.StatusFound) // Redirect to home/signin if no session cookie
+        return
+    	}
 
-		username, ok := sessions[cookie.Value]
-		if !ok {
-			http.Redirect(w, r, "/", http.StatusFound) // Redirect if session invalid
-			return
-		}
-		http.ServeFile(w, r, "static/dashboard.html")
-		// fmt.Fprintf(w, "Welcome to the dashboard, %s!", username)
+    // We no longer directly use 'username' or 'ok' in the Go code after switching to static file serving.
+    // However, we still need to check if the session is valid.
+   	 _, ok := sessions[cookie.Value] // Use '_' to discard the 'username' value as it's not used
+    	if !ok {
+        	http.Redirect(w, r, "/", http.StatusFound) // Redirect if session invalid
+        	return
+   		}
+
+    		// Serve the dashboard HTML content from a static file
+    		http.ServeFile(w, r, "static/dashboard.html")
+    		// The username for display is now passed via the redirect URL to the frontend JavaScript.
 	})
 
 

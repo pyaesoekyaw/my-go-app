@@ -6,7 +6,9 @@
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/pyae-soe-kyaw-2a9962302/) <br>
 [![GitHub](https://img.shields.io/badge/GitHub-Repo-lightgrey?style=flat&logo=github)](https://github.com/pyaesoekyaw)<br>
-before we get started , here is what you are looking for , a live action version of the project : https://www.youtube.com/watch?v=w0FxndMykME&t=518s.
+before we get started , here is what you are looking for , a live action version of the project : <br>
+https://www.youtube.com/watch?v=w0FxndMykME&t=518s.
+
 ## 🌟 Project Overview
 
 This project showcases a **simple Go web application** implementing user registration and sign-in functionalities. Data is securely stored in an **Amazon RDS PostgreSQL database**. The core of this repository is to demonstrate a robust **Jenkins CI/CD pipeline** for automated building, testing, and deployment to an AWS EC2 instance. This setup emphasizes continuous integration and continuous delivery best practices.

@@ -2,7 +2,7 @@
 # `my-go-app` Web Application Deployment
 
 *Figure 1: End-to-end CI/CD pipeline for `my-go-app` using Jenkins and AWS EC2*
-
+![final diagram](https://github.com/pyaesoekyaw/my-go-app/blob/main/images/Final%20Diagram.png)
 -----
 
 ## 🌟 Project Overview
